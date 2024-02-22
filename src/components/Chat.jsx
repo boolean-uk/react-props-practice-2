@@ -1,19 +1,26 @@
-import Message from './Message'
+import { useState } from "react";
+import Message from "./Message";
 
-function Chat({ messages, addMessage }) {
+function Chat({ initialMessages, user, addMessage }) {
+  const [messages, setMessages] = useState(initialMessages);
+
+  const handleAddMessage = (text) => {
+    setMessages([...messages, { id: messages.length + 1, text, user }]);
+  };
+
   return (
     <div className="chat">
       <ul>
-        {messages.map( (message, index) => (
-          <Message key={index} message={message} />
+        {messages.map((message) => (
+          <Message key={message.id} message={message} />
         ))}
       </ul>
 
       <form
-        onSubmit={e => {
-          e.preventDefault()
-          addMessage(e.target.message.value)
-          e.target.reset()
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAddMessage(e.target.message.value);
+          e.target.reset();
         }}
       >
         <input
@@ -24,7 +31,7 @@ function Chat({ messages, addMessage }) {
         />
       </form>
     </div>
-  )
+  );
 }
 
-export default Chat
+export default Chat;
