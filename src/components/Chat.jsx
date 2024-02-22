@@ -1,19 +1,36 @@
-import Message from './Message'
+import Message from "./Message";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
-function Chat({ messages, addMessage }) {
+let id = 6;
+
+const initialMessages = [
+  { id: 1, text: "Hello!", user: "Nicolas" },
+  { id: 2, text: "Hey!", user: "Sergio" },
+  { id: 3, text: "How are you feeling today?", user: "Nicolas" },
+  { id: 4, text: "Hot hot, you?", user: "Sergio" },
+  { id: 5, text: "Cool cool!", user: "Nicolas" },
+];
+
+function Chat() {
+  const [messages, setMessages] = useState(initialMessages);
+
+  const addMessage = (text) => {
+    setMessages([...messages, { id: id++, text, user: "Nicolas" }]);
+  };
   return (
     <div className="chat">
       <ul>
-        {messages.map( (message, index) => (
+        {messages.map((message, index) => (
           <Message key={index} message={message} />
         ))}
       </ul>
 
       <form
-        onSubmit={e => {
-          e.preventDefault()
-          addMessage(e.target.message.value)
-          e.target.reset()
+        onSubmit={(e) => {
+          e.preventDefault();
+          addMessage(e.target.message.value);
+          e.target.reset();
         }}
       >
         <input
@@ -24,7 +41,11 @@ function Chat({ messages, addMessage }) {
         />
       </form>
     </div>
-  )
+  );
 }
 
-export default Chat
+Chat.propTypes = {
+  message: PropTypes.object,
+};
+
+export default Chat;
