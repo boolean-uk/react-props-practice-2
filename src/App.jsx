@@ -15,14 +15,20 @@ const initialMessages = [
   { id: 5, text: 'Cool cool!', user: 'Nicolas' }
 ]
 
-export default function App() {
+//main App component
+//states are moved here to the chatmanager,
+//that controls state of messages and user
+function ChatManager(){
+  //state for messages and user
   const [messages, setMessages] = useState(initialMessages)
   const [user, setUser] = useState('Nicolas')
 
+  //function to add new message
   const addMessage = text => {
     setMessages([...messages, { id: id++, text, user: 'Nicolas' }])
   }
 
+  //render UI
   return (
     <div className="app">
       <Title user={user} />
@@ -30,3 +36,5 @@ export default function App() {
     </div>
   )
 }
+
+export default ChatManager; //export chatmanager
