@@ -1,5 +1,8 @@
-function Title(props) {
-  return <h1>Welcome, {props.user}!</h1>
+import { useState } from "react";
+function Title() {
+  // eslint-disable-next-line no-unused-vars
+  const [user, setUser] = useState("Nicolas");
+  return <h1>Welcome, {user}!</h1>;
 }
 
-export default Title
+export default Title;
