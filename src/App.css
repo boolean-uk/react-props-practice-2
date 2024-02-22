@@ -25,7 +25,7 @@
 }
 
 .chat::before {
-  content: '';
+  content: "";
   background-image: url(https://media.istockphoto.com/vectors/set-of-contact-us-and-support-icons-vector-pattern-design-vector-id1183632265?b=1&k=6&m=1183632265&s=612x612&w=0&h=amiSpWa3mpkO8z0iE3s28W25ynGZhwD2ngDFhZlaHtA=);
 
   position: absolute;
@@ -66,7 +66,7 @@
 }
 
 .chat .message::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 1em;
   height: 1em;
@@ -83,7 +83,7 @@
 }
 
 .chat .message.mine::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 1em;
   height: 1em;

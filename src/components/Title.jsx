@@ -1,5 +1,7 @@
-function Title(props) {
-  return <h1>Welcome, {props.user}!</h1>
+import PropTypes from "prop-types";
+function Title({ user }) {
+  return <h1>Welcome, {user}!</h1>;
 }
 
-export default Title
+export default Title;
+Title.propTypes = { user: PropTypes.string };
