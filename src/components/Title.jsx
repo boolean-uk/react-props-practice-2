@@ -1,5 +1,7 @@
-function Title(props) {
-  return <h1>Welcome, {props.user}!</h1>
-}
+import { useState } from 'react'
 
-export default Title
+export default function Title() {
+  const [user] = useState('Nicolas')
+
+  return <h1>Welcome, {user}!</h1>
+}
