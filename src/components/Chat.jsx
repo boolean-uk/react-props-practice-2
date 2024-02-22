@@ -1,6 +1,22 @@
 import Message from './Message'
+import { useState } from 'react'
 
-function Chat({ messages, addMessage }) {
+const initialMessages = [
+  { id: 1, text: 'Hello!', user: 'Nicolas' },
+  { id: 2, text: 'Hey!', user: 'Sergio' },
+  { id: 3, text: 'How are you feeling today?', user: 'Nicolas' },
+  { id: 4, text: 'Hot hot, you?', user: 'Sergio' },
+  { id: 5, text: 'Cool cool!', user: 'Nicolas' }
+]
+let id = 6
+
+function Chat() {
+
+  const addMessage = text => {
+    setMessages([...messages, { id: id++, text, user: 'Nicolas' }])
+  }
+
+  const [messages, setMessages] = useState(initialMessages)
   return (
     <div className="chat">
       <ul>
