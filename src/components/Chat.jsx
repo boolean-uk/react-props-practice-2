@@ -1,21 +1,27 @@
 import { useState } from 'react';
 import Message from './Message';
 
-function Chat({ initialMessages }) {
+function Chat() {
+  let id = 6;
+  const initialMessages = [
+    { id: 1, text: 'Hello!', user: 'Nicolas' },
+    { id: 2, text: 'Hey!', user: 'Sergio' },
+    { id: 3, text: 'How are you feeling today?', user: 'Nicolas' },
+    { id: 4, text: 'Hot hot, you?', user: 'Sergio' },
+    { id: 5, text: 'Cool cool!', user: 'Nicolas' }
+  ];
   const [messages, setMessages] = useState(initialMessages);
-  const [user] = useState('Nicolas'); // Assuming user doesn't change in Chat
 
   const addMessage = text => {
-    const newMessage = { id: messages.length + 1, text, user };
-    setMessages([...messages, newMessage]);
+    setMessages([...messages, { id: id++, text, user: "Nicolas" }]);
   };
 
   return (
     <div className="chat">
       <ul>
-        {messages.map(message => (
-          <Message key={message.id} message={message} />
-        ))}
+        {messages.map((message, index) => (
+          <Message key={index} message={message} />
+        ))};
       </ul>
 
       <form
