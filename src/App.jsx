@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="app">
       <Title user={user} />
-      <Chat initialMessages={initialMessages} />
+      <Chat />
     </div>
   )
 }
