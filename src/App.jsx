@@ -4,9 +4,7 @@ import Chat from './components/Chat'
 import Title from './components/Title'
 
 import './App.css'
-
-let id = 6
-
+// 
 const initialMessages = [
   { id: 1, text: 'Hello!', user: 'Nicolas' },
   { id: 2, text: 'Hey!', user: 'Sergio' },
@@ -16,17 +14,10 @@ const initialMessages = [
 ]
 
 export default function App() {
-  const [messages, setMessages] = useState(initialMessages)
-  const [user, setUser] = useState('Nicolas')
-
-  const addMessage = text => {
-    setMessages([...messages, { id: id++, text, user: 'Nicolas' }])
-  }
-
   return (
     <div className="app">
-      <Title user={user} />
-      <Chat messages={messages} addMessage={addMessage} />
+      <Title />
+      <Chat initialMessages={initialMessages} />
     </div>
-  )
+  );
 }
