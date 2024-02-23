@@ -1,6 +1,14 @@
-import Message from './Message'
+import Message from './Message.jsx'
+import { useState } from 'react'
 
-function Chat({ messages, addMessage }) {
+function Chat({ initialMessages }) {
+  const [messages, setMessages] = useState(initialMessages)
+  
+let id = 6
+const addMessage = text => {
+  setMessages([...messages, { id: id++, text, user: 'Nicolas' }])
+}
+
   return (
     <div className="chat">
       <ul>

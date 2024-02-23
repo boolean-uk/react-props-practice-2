@@ -5,7 +5,6 @@ import Title from './components/Title'
 
 import './App.css'
 
-let id = 6
 
 const initialMessages = [
   { id: 1, text: 'Hello!', user: 'Nicolas' },
@@ -16,17 +15,15 @@ const initialMessages = [
 ]
 
 export default function App() {
-  const [messages, setMessages] = useState(initialMessages)
+  
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState('Nicolas')
 
-  const addMessage = text => {
-    setMessages([...messages, { id: id++, text, user: 'Nicolas' }])
-  }
-
+  
   return (
     <div className="app">
       <Title user={user} />
-      <Chat messages={messages} addMessage={addMessage} />
+      <Chat initialMessages={initialMessages} />
     </div>
   )
 }
